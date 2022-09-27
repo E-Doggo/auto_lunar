@@ -28,4 +28,15 @@ describe("Mover auto", () => {
     expect(car.ejecutar("IIII")).toEqual("0,0N");
   })
 
+  it("Auto se movera al este", () => {
+    expect(car.ejecutar("ADA")).toEqual("1,1E");
+  })
+
+  it("Auto retrocedera al oeste", () => {
+    expect(car.ejecutar("ADAAAIIA")).toEqual("2,1O");
+  })
+  it("Auto retrocedera al oeste", () => {
+    expect(car.ejecutar("ADAADA")).toEqual("2,0S");
+  })
+
 });

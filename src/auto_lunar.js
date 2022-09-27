@@ -12,7 +12,7 @@ class Auto
   ejecutar(cadena) {
     for (let i =0; i < cadena.length; i++)
     {
-      if (cadena[i] == 'A')
+      if (cadena[i] == "A")
       {
         this.avanzar();
       }
@@ -28,9 +28,21 @@ class Auto
   avanzar()
   {
     let direcActual = this.direcciones[this.direccion];
-    if(direcActual = "N")
+    if(direcActual == "N")
     {
       this.posY += 1;
+    }
+    if(direcActual == "E")
+    {
+      this.posX += 1;
+    }
+    if(direcActual == "O")
+    {
+      this.posX -= 1;
+    }
+    if(direcActual == "S")
+    {
+      this.posY -= 1;
     }
   }
   
