@@ -13,7 +13,7 @@ class Auto
   ejecutar(cadena) {
     for (let i =0; i < cadena.length; i++)
     {
-      if (cadena[i] == "A")
+      if (cadena[i].toUpperCase() == "A")
       {
         this.avanzar();
         

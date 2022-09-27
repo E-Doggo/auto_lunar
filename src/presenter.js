@@ -1,15 +1,11 @@
-import sumar from "./sumador";
+import Auto from "./auto_lunar.js";
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
-const form = document.querySelector("#sumar-form");
+const instruccion = document.querySelector("#instruccion");
+const form = document.querySelector("#mover-form");
 const div = document.querySelector("#resultado-div");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
-
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+  let car = new Auto();
+  div.innerHTML = "<p>" + car.ejecutar(instruccion.value.toString()) + "</p>";
 });
