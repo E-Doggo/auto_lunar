@@ -7,6 +7,7 @@ class Auto
     this.posY = 0;
     this.direcciones = ["N", "E", "S", "O"];
     this.direccion = 0;
+    this.margen = 10;
   }
 
   ejecutar(cadena) {
@@ -15,6 +16,7 @@ class Auto
       if (cadena[i] == "A")
       {
         this.avanzar();
+        
       }
       else
       {
@@ -31,18 +33,42 @@ class Auto
     if(direcActual == "N")
     {
       this.posY += 1;
+      this.fueraDelMargen();
     }
     if(direcActual == "E")
     {
       this.posX += 1;
+      this.fueraDelMargen();
     }
     if(direcActual == "O")
     {
       this.posX -= 1;
+      this.fueraDelMargen();
     }
     if(direcActual == "S")
     {
       this.posY -= 1;
+      this.fueraDelMargen();
+    }
+  }
+
+  fueraDelMargen()
+  {
+    if(this.posX > this.margen)
+    {
+      this.posX -= 1;
+    }
+    if(this.posY > this.margen)
+    {
+      this.posY -= 1;
+    }
+    if (this.posX < 0)
+    {
+      this.posX +=1;
+    }
+    if (this.posY < 0)
+    {
+      this.posY +=1;
     }
   }
   
