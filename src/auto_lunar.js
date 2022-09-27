@@ -1,24 +1,65 @@
-let posX = 0;
-let posY = 0;
-const direcciones = ["N", "E", "S", "O"];
 
-
-function avanzar(cadena)
+class Auto
 {
-  for (let i =0; i < cadena.length; i++)
+  constructor()
   {
-    if (cadena[i] == 'A')
+    this.posX = 0;
+    this.posY = 0;
+    this.direcciones = ["N", "E", "S", "O"];
+    this.direccion = 0;
+  }
+
+  ejecutar(cadena) {
+    for (let i =0; i < cadena.length; i++)
     {
-      posY += 1
+      if (cadena[i] == 'A')
+      {
+        this.avanzar();
+      }
+      else
+      {
+        this.girar(cadena[i]);
+      }
+    }
+    return this.direccionCadena();
+  }
+
+
+  avanzar()
+  {
+    let direcActual = this.direcciones[this.direccion];
+    if(direcActual = "N")
+    {
+      this.posY += 1;
     }
   }
+  
+  girar(char)
+  {
+    if(char == "D")
+    {
+      this.direccion +=1;
+      if (this.direccion > 3)
+      {
+        this.direccion = 0;
+      }
+    }
+    if (char == "I")
+    {
+      this.direccion -=1;
+      if (this.direccion < 0)
+      {
+        this.direccion = 3
+      }
+    }
+  }
+  
+  direccionCadena()
+  {
+    let str = "";
+    str += this.posX +","+ this.posY + this.direcciones[this.direccion];
+    return str;
+  }
+  
 }
-
-function ejecutar(cadena) {
-  let str = "";
-  avanzar(cadena);
-  str += posX +","+ posY + direcciones[0];
-  return str;
-}
-
-export default ejecutar;
+export default Auto;
